@@ -1,0 +1,336 @@
+/* ==========================================================================
+   ESTILOS MIGRADOS DE FAST PRODUCTS (Para React)
+   ========================================================================== */
+:root {
+    --bg-color: #FEF7FF;
+    --primary-color: #d98e8ecb;
+    --card-color: #e9b6b6;
+    --btn-color: #D9C6C6;
+    --border-color: #c79595;
+    --text-dark: #000000;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --shadow-hard: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Importar fuentes de Google (si no las tienes en el index.html de React) */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.react-app-wrapper {
+    background-color: var(--bg-color);
+    font-family: 'PT Sans Narrow', sans-serif;
+    border: 6px solid var(--primary-color);
+    margin: 0;
+    padding: 2%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.react-app-wrapper img {
+    border-radius: 11px;
+    max-width: 100%;
+    height: auto;
+}
+
+.react-app-wrapper h1 { margin-left: 30px; color: var(--primary-color); }
+.react-app-wrapper h3 { font-weight: 400; margin: 0; }
+.react-app-wrapper span { font-weight: 400; }
+.react-app-wrapper h4 { font-weight: 500; }
+.react-app-wrapper a { color: inherit; text-decoration: none; padding: 8px; }
+
+/* ==========================================================================
+   COMPONENTES REUTILIZABLES (BOTONES)
+   ========================================================================== */
+.btn {
+    border-radius: 11px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 16px;
+}
+
+.btn:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.btn-primary {
+    background-color: var(--btn-color);
+    color: var(--text-dark);
+}
+.btn-primary:hover { background-color: #cbb4b4; }
+.btn-primary:active { background-color: #b59898; }
+
+.btn-sm { height: 35px; font-size: 0.9rem; }
+
+.btn-float {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    font-weight: 300;
+    padding: 0;
+    z-index: 1000;
+}
+.btn-float:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+.italica { font-family: 'Playfair Display', serif; font-style: italic; }
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN
+   ========================================================================== */
+.headerInterno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3%;
+    gap: 15px;
+}
+
+.react-app-wrapper nav { display: flex; margin-left: auto; gap: 15px; }
+.logo { text-align: center; margin-top: 10px; }
+.nav-interfaz { color: rgba(0, 0, 0, 0.6); font-weight: 700; transition: color 0.3s; }
+.nav-interfaz:hover { color: rgba(0, 0, 0, 1); }
+.activo { font-size: 25px; color: rgba(0, 0, 0, 1); }
+
+/* ==========================================================================
+   BARRA DE BÚSQUEDA
+   ========================================================================== */
+#opcionesBusqueda {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3rem;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#SeleccionVista { display: flex; flex-wrap: wrap; align-items: center; }
+.distribucion-botones-vista { display: flex; flex-wrap: wrap; gap: 10px; }
+.vista-txt { margin-right: 10px; }
+.contenedor-busqueda { display: flex; align-items: center; margin-left: auto; }
+
+.casilla-bus-txt {
+    height: 35px;
+    outline: none;
+    padding: 0 60px 0 20px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 11px;
+    color: var(--text-dark);
+    margin-right: 5px;
+}
+
+/* ==========================================================================
+   VISTA DE INVENTARIO (TARJETAS)
+   ========================================================================== */
+#inventario {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.tarjetaProducto {
+    width: 240px;
+    height: 260px;
+    background-color: #e9b6b6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.tarjetaProducto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.contenedorImagen {
+    width: 100%;
+    border-radius: 11px;
+    overflow: hidden;
+}
+
+.contenedorImagen img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.datosIndividuales {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.datosIndividuales span {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #000;
+}
+/* ==========================================================================
+   ESTILOS PARA LA VISTA DE ALERTAS (tarjetaEnlistada)
+   ========================================================================== */
+.campoEnlistado { 
+    margin: 20px auto; 
+    max-width: 900px; 
+}
+
+.tarjetaEnlistada {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+    margin-top: 20px;
+    border-radius: 11px;
+    background-color: var(--primary-color);
+    padding-right: 20px;
+    box-shadow: var(--shadow-soft);
+    width: 100%; /* Asegura que ocupe el ancho */
+}
+
+.seccionDatosPrincipal { 
+    display: flex; 
+    align-items: center; 
+    height: 100%; 
+}
+
+.seccionDatosPrincipal img { 
+    border-radius: 11px 0 0 11px; 
+    height: 110px; 
+    width: 110px;
+    object-fit: cover; 
+}
+
+.seccionDatosSecundaria { 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    padding-left: 20px;
+}
+
+.seccionDatosTerciaria { 
+    display: flex; 
+    justify-content: flex-start; 
+    gap: 30px; 
+    margin-top: 10px;
+}
+
+.nombreTarjetas { 
+    font-weight: 700; 
+    font-size: 1.2rem; 
+    color: #000;
+}
+
+.datosInternos { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.datosIndividuales { 
+    font-weight: 400; 
+    font-size: 0.9rem; 
+    color: #333;
+    margin-bottom: 3px;
+}
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA EL DETALLE DEL REPORTE
+   ========================================================================== */
+
+.contenedor-detalle-reporte {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-hard);
+}
+
+.header-detalle {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 20px;
+}
+
+.formularios-comparativos {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.formulario-comparativo {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 11px;
+}
+
+.caja-antes {
+    background-color: #f9f9f9;
+    border: 1px solid var(--border-color);
+}
+
+.caja-despues {
+    background-color: #f0f8ff;
+    border: 1px solid #cce5ff;
+}
+
+.titulo-antes {
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.titulo-despues {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+/* Estilo para los inputs de solo lectura en el reporte */
+.grupoInput input[readonly] {
+    background-color: #e0e0e0;
+    color: #333;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+}
