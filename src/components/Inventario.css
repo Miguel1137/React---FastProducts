@@ -334,3 +334,80 @@
     cursor: not-allowed;
     border: 1px solid #ccc;
 }
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA LA CUENTA DE USUARIO
+   ========================================================================== */
+.contenedor-cuenta {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cuenta-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 20px;
+}
+
+.cuenta-header h2 {
+    margin: 0 0 10px 0;
+    color: var(--text-dark);
+}
+
+.cuenta-header h4 {
+    margin: 0;
+    color: #666;
+}
+
+.cuenta-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-color);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.cuenta-item-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.cuenta-item-value {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.permisos-lista {
+    background-color: var(--card-color);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.permiso-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #fff;
+}
+
+.permiso-item:last-child {
+    border-bottom: none;
+}
+
+.btn-logout {
+    width: 100%;
+    margin-top: 30px;
+    height: 50px;
+    font-size: 1.1rem;
+}

@@ -1,19 +1,28 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './components/Login';
 import Inventario from './components/Inventario';
 import Alertas from './components/Alertas';
 import Reportes from './components/Reportes';
 import DetalleReporte from './components/DetalleReporte';
+import Cuenta from './components/Cuenta';
+import Configuracion from './components/Configuracion';
+import RutaProtegida from './components/RutaProtegida';
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/inventario" />} />
-        <Route path="/inventario" element={<Inventario />} />
-        <Route path="/alertas" element={<Alertas />} />
-        <Route path="/reportes" element={<Reportes />} />
-        <Route path="/verReporte/:id" element={<DetalleReporte />} />
+        {/* Ruta pública de Login */}
+        <Route path="/" element={<Login />} />
+        
+        {/* Rutas Protegidas (Requieren inicio de sesión) */}
+        <Route path="/inventario" element={<RutaProtegida><Inventario /></RutaProtegida>} />
+        <Route path="/alertas" element={<RutaProtegida><Alertas /></RutaProtegida>} />
+        <Route path="/reportes" element={<RutaProtegida><Reportes /></RutaProtegida>} />
+        <Route path="/verReporte/:id" element={<RutaProtegida><DetalleReporte /></RutaProtegida>} />
+        <Route path="/cuenta" element={<RutaProtegida><Cuenta /></RutaProtegida>} />
+        <Route path="/configuracion" element={<RutaProtegida><Configuracion /></RutaProtegida>} />
       </Routes>
     </BrowserRouter>
   );
