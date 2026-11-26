@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importamos Link para la navegación
+import { Link } from 'react-router-dom';
 import './Inventario.css';
 
 function Inventario() {
@@ -42,11 +42,11 @@ function Inventario() {
         </div>
         
         <nav>
-          <h3 id="navbar-inicio" className="nav-interfaz"><Link to="/inventario">Inicio</Link></h3>
+          <h3 id="navbar-inicio" className="nav-interfaz"><Link to="/inventario">Inventario</Link></h3>
           <h3 id="navbar-alertas" className="nav-interfaz"><Link to="/alertas">Alertas</Link></h3>
           <h3 id="navbar-reportes" className="nav-interfaz"><Link to="/reportes">Reportes</Link></h3>
           <h3 id="navbar-cuenta" className="nav-interfaz"><Link to="/cuenta">Cuenta</Link></h3>
-          <h3 id="navbar-configuracion" className="nav-interfaz"><Link to="/configuracion">Configuracion</Link></h3>
+          <h3 id="navbar-configuracion" className="nav-interfaz"><Link to="/configuracion">Administracion</Link></h3>
         </nav>
       </header>        
 
@@ -77,32 +77,39 @@ function Inventario() {
 
         {/* ================= LISTA DE PRODUCTOS ================= */}
         <section id="inventario">
-          {productosFiltrados.length === 0 ? (
-            <p style={{ textAlign: 'center', width: '100%', color: '#555' }}>No se encontraron productos.</p>
+          {!productosFiltrados || productosFiltrados.length === 0 ? (
+            <p style={{ textAlign: 'center', width: '100%', color: '#555' }}>
+              No se encontraron productos.
+            </p>
           ) : (
-            productosFiltrados.map(prod => (
-              // Usamos <a> porque la vista detallada aún está en JSP
-              <a key={prod.id} href={`http://localhost:8080/verProducto?id=${prod.id}`}>
-                <div className="tarjetaProducto">
-                  
-                  <div className="contenedorImagen">
-                    <img src={obtenerUrlImagen(prod.foto)} alt={prod.nombre} />
-                  </div>
-
-                  <div className="datosIndividuales">
-                    <span>Nombre: {prod.nombre}</span>
-                    <span>Talla: {prod.talla && prod.talla !== '' ? prod.talla : 'N/A'}</span>
-                    <span>Precio: ${prod.precio}</span>
-                  </div>
+            productosFiltrados.map((prod) => (
+              <Link
+                key={prod.id}
+                to={`/ver-producto/${prod.id}`}
+                className="tarjetaProducto"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <div className="contenedorImagen">
+                  <img src={obtenerUrlImagen(prod.foto)} alt={prod.nombre} />
                 </div>
-              </a>
+
+                <div className="datosIndividuales">
+                  <span>Nombre: {prod.nombre}</span>
+                  <span>Talla: {prod.talla && prod.talla.trim() !== '' ? prod.talla : 'N/A'}</span>
+                  <span>Precio: ${prod.precio}</span>
+                </div>
+              </Link>
             ))
           )}
         </section>
         
-        {/* ================= BOTÓN FLOTANTE ================= */}
-        {/* Como crear-producto aún es JSP, usamos href normal */}
-        <a href="http://localhost:8080/crear-producto" className="btn btn-primary btn-float" title="Crear nuevo producto">+</a>
+        {/* ================= BOTÓN FLOTANTE ÚNICO ================= */}
+        <Link to="/crear-producto" className="btn btn-primary btn-float" title="Crear nuevo producto">
+          +
+        </Link>
+        <Link to="/ventas" className="btn btn-primary btn-float" style={{ right: '120px' }} title="Registrar Venta">
+          $
+        </Link>
       </main>
 
       <footer>

@@ -32,11 +32,11 @@ function Alertas() {
         </div>
         
         <nav>
-          <h3 id="navbar-inicio" className="nav-interfaz"><Link to="/inventario">Inicio</Link></h3>
+          <h3 id="navbar-inicio" className="nav-interfaz"><Link to="/inventario">Inventario</Link></h3>
           <h3 id="navbar-alertas" className="nav-interfaz"><Link to="/alertas">Alertas</Link></h3>
           <h3 id="navbar-reportes" className="nav-interfaz"><Link to="/reportes">Reportes</Link></h3>
           <h3 id="navbar-cuenta" className="nav-interfaz"><Link to="/cuenta">Cuenta</Link></h3>
-          <h3 id="navbar-configuracion" className="nav-interfaz"><Link to="/configuracion">Configuracion</Link></h3>
+          <h3 id="navbar-configuracion" className="nav-interfaz"><Link to="/configuracion">Administracion</Link></h3>
         </nav>
       </header>
 
@@ -75,9 +75,9 @@ function Alertas() {
                 </div>
 
                 {/* Botón de la derecha */}
-                <a href={`http://localhost:8080/editarProducto?id=${alerta.id}`} className="btn btn-primary btn-md">
+                <Link to={`/editar-producto/${alerta.id}`} className="btn btn-primary btn-md">
                   Reabastecer
-                </a>
+                </Link>
                 
               </div>
             ))

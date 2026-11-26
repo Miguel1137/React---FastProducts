@@ -55,11 +55,11 @@ function DetalleReporte() {
         </div>
         
         <nav>
-          <h3 className="nav-interfaz"><Link to="/inventario">Inicio</Link></h3>
-          <h3 className="nav-interfaz"><Link to="/alertas">Alertas</Link></h3>
-          <h3 className="nav-interfaz"><Link to="/reportes">Reportes</Link></h3>
-          <h3 className="nav-interfaz"><a href="http://localhost:8080/cuenta">Cuenta (JSP)</a></h3>
-          <h3 className="nav-interfaz"><a href="http://localhost:8080/configuracion">Config (JSP)</a></h3>
+          <h3 id="navbar-inicio" className="nav-interfaz"><Link to="/inventario">Inventario</Link></h3>
+          <h3 id="navbar-alertas" className="nav-interfaz"><Link to="/alertas">Alertas</Link></h3>
+          <h3 id="navbar-reportes" className="nav-interfaz"><Link to="/reportes">Reportes</Link></h3>
+          <h3 id="navbar-cuenta" className="nav-interfaz"><Link to="/cuenta">Cuenta</Link></h3>
+          <h3 id="navbar-configuracion" className="nav-interfaz"><Link to="/configuracion">Administracion</Link></h3>
         </nav>
       </header>
 
